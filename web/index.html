@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector de Baterías para Montacargas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><h2>🔋 Battery Selector</h2></div>
+            <div class="nav-menu">
+                <a href="#" class="nav-link" target="_blank" rel="noopener">Contacto / Ventas</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Selector de Baterías</h1>
+            <p class="hero-subtitle">Encuentra la batería compatible para tu montacargas</p>
+            <div class="hero-badge">
+                <span>✓ Filtros en cascada</span>
+                <span>✓ Base de datos relacional</span>
+                <span>✓ Sin framework</span>
+            </div>
+            <p style="margin-top:16px; opacity:0.9; font-size:0.9em;">
+                Demo con datos simulados · <a href="#" style="color:#fff; text-decoration:underline;">código en GitHub</a>
+            </p>
+        </section>
+
+        <main>
+            <div class="selector-card">
+                <div class="card-header">
+                    <h2>Configuración del Equipo</h2>
+                    <p>Selecciona las características de tu montacargas</p>
+                </div>
+
+                <div class="selector-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="manufacturer"><span class="label-icon">🏭</span>Fabricante del Equipo</label>
+                            <select id="manufacturer" class="form-control">
+                                <option value="">Selecciona un fabricante...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="model"><span class="label-icon">🚜</span>Modelo del Equipo</label>
+                            <select id="model" class="form-control" disabled>
+                                <option value="">Primero selecciona un fabricante</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="voltage"><span class="label-icon">⚡</span>Voltaje</label>
+                            <select id="voltage" class="form-control" disabled>
+                                <option value="">Primero selecciona un modelo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="compartment"><span class="label-icon">📐</span>Tamaño del Compartimiento</label>
+                            <select id="compartment" class="form-control" disabled>
+                                <option value="">Primero selecciona un voltaje</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button id="searchBtn" class="btn-primary" disabled>🔍 Buscar Batería Compatible</button>
+                </div>
+            </div>
+
+            <div id="results" class="results-container" style="display:none;">
+                <div class="result-header">
+                    <h2>Batería Recomendada</h2>
+                    <span class="result-badge">Compatible</span>
+                </div>
+                <div id="batteryDetails" class="battery-details"></div>
+            </div>
+
+            <div id="noResults" class="no-results" style="display:none;">
+                <div class="no-results-icon">🔍</div>
+                <h2>Sin resultados</h2>
+                <p>No se encontró una batería para esa combinación.</p>
+                <p class="no-results-hint">Prueba con otro voltaje o compartimiento.</p>
+            </div>
+
+            <div id="loader" class="loader" style="display:none;">
+                <div class="spinner"></div>
+                <p>Buscando batería compatible...</p>
+            </div>
+
+            <div class="stats-section">
+                <h3>Estadísticas de la Base de Datos</h3>
+                <div class="stats-grid" id="stats">
+                    <div class="stat-card"><div class="stat-icon">🏭</div><div class="stat-number" id="totalManufacturers">-</div><div class="stat-label">Fabricantes</div></div>
+                    <div class="stat-card"><div class="stat-icon">🚜</div><div class="stat-number" id="totalModels">-</div><div class="stat-label">Modelos</div></div>
+                    <div class="stat-card"><div class="stat-icon">🔋</div><div class="stat-number" id="totalBatteryTypes">-</div><div class="stat-label">Tipos de Batería</div></div>
+                    <div class="stat-card"><div class="stat-icon">📊</div><div class="stat-number" id="totalRecords">-</div><div class="stat-label">Registros</div></div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BATTERY SELECTOR</h4>
+                    <p>Proyecto de demostración — scraping, ETL y base de datos relacional.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Stack</h4>
+                    <p>Python · Supabase (PostgreSQL) · HTML/CSS/JS</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Datos</h4>
+                    <p>Simulados para demostración.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Proyecto de portafolio · Datos simulados</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+</body>
+</html>

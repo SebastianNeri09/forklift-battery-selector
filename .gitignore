@@ -1,0 +1,29 @@
+# Secrets / local config
+.env
+.env.local
+config.local.js
+CREDENCIALES.txt
+credentials*.txt
+
+# Real scraped data (do not commit third‑party catalog data)
+scraper/output/
+scraper/CSV_*/
+*_ALL_DATA.sql
+insert_all_data.sql
+*.xlsx
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Node / misc
+node_modules/
+.vercel/
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
